@@ -11,6 +11,7 @@ namespace TestNovel.Scripts.ConfigurationScripts
         [SerializeField] public List<CharacterViewToEmotion> CharacterViews;
 
         private static List<CharacterViewToEmotion> _cachedResult;
+        
         public static IReadOnlyList<CharacterViewToEmotion> GetEmotionsToView()
         {
             if (_cachedResult == null)

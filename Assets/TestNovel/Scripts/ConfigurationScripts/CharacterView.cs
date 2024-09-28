@@ -2,8 +2,9 @@ using UnityEngine;
 
 namespace TestNovel.Scripts.ConfigurationScripts
 {
-    public class CharacterView
+    [CreateAssetMenu(menuName = "Configuration/CharacterView", fileName = "CharacterView")]
+    public class CharacterView : ScriptableObject
     {
-        public Texture2D MainView;
+        [SerializeField] public Texture2D MainView;
     }
 }

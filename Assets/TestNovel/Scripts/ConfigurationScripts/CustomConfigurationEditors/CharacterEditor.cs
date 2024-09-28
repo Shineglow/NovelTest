@@ -8,7 +8,7 @@ namespace TestNovel.Scripts.ConfigurationScripts.CustomConfigurationEditors
     {
         public override void OnInspectorGUI()
         {
-            base.OnInspectorGUI();
+            DrawDefaultInspector();
             
             if (GUILayout.Button("Reset emotions configuration"))
             {
@@ -18,7 +18,6 @@ namespace TestNovel.Scripts.ConfigurationScripts.CustomConfigurationEditors
                 views.arraySize = a.Count;
                 for (var i = 0; i < a.Count; i++)
                 {
-                    views.InsertArrayElementAtIndex(i);
                     var element = views.GetArrayElementAtIndex(i);
                     var b = a[i];
                     element.FindPropertyRelative("Emotion").enumValueIndex = (int)b.Emotion;

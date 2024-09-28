@@ -10,7 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d40058b1a93640f0942bcc057ff8947d, type: 3}
-  m_Name: Knight
+  m_Name: Knight1
   m_EditorClassIdentifier: 
-  Name: 
-  CharacterViews: []
+  BaseCharacter: {fileID: 11400000, guid: 820fb70f60592994b87e36f0586cca1a, type: 2}
+  Name: Knight 1
+  CharacterViews:
+  - Emotion: 0
+    CharacterView: {fileID: 11400000, guid: fd64c78ea3372d24498e513898e09107, type: 2}
