@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Game.Gameplay.Root;
+using Game.Gameplay.Root.Model;
 using Game.GameRoot;
+using TestNovel.Scripts.Game.Gameplay.CharactersScene;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,6 +17,8 @@ public class GameEntryPoint
     private UIRootView _uiRootView;
     
     private DiContainer _container;
+    private MainMonoInstaller _mainMonoInstaller;
+    private CharactersSceneModel _charactersSceneModel;
 
     private GameEntryPoint()
     {
@@ -23,6 +27,7 @@ public class GameEntryPoint
 
         var prefabUIRoot = Resources.Load<UIRootView>("UIRoot");
         _uiRootView = Object.Instantiate(prefabUIRoot);
+        _charactersSceneModel = _uiRootView.GetComponent<CharactersSceneModel>();
         Object.DontDestroyOnLoad(_uiRootView.gameObject);
     }
     
@@ -71,13 +76,19 @@ public class GameEntryPoint
 
         yield return new WaitForSeconds(2);
 
-        var sceneEntryPoint = Object.FindObjectOfType<GameplayEntryPoint>();
-        sceneEntryPoint.Run(_uiRootView);
+        var prefabMainMonoInstaller = Resources.Load<MainMonoInstaller>("MainMonoInstaller");
+        _mainMonoInstaller = Object.Instantiate(prefabMainMonoInstaller);
 
-        sceneEntryPoint.GoToMainMenuSceneRequested += () =>
-        {
-            _coroutines.StartCoroutine(LoadAndStartMainMenu());
-        };
+        yield return null;
+
+        var container = _mainMonoInstaller.GetContainer();
+
+        var sceneEntryPoint = Object.FindObjectOfType<GameplayEntryPoint>();
+        sceneEntryPoint.Initialize(container, new UIGameplayRootModel());
+        sceneEntryPoint.Run(_uiRootView);
+        container.BindInterfacesTo<GameplayEntryPoint>().FromInstance(sceneEntryPoint).AsCached();
+
+        sceneEntryPoint.GoToMainMenuSceneRequested += () => _coroutines.StartCoroutine(LoadAndStartMainMenu());
         
         _uiRootView.HideLoadingScreen();
     }
@@ -94,10 +105,7 @@ public class GameEntryPoint
         var sceneEntryPoint = Object.FindObjectOfType<MainMenuEntryPoint>();
         sceneEntryPoint.Run(_uiRootView);
 
-        sceneEntryPoint.GoToGameplaySceneRequested += () =>
-        {
-            _coroutines.StartCoroutine(LoadAndStartGameplay());
-        };
+        sceneEntryPoint.GoToGameplaySceneRequested += () => _coroutines.StartCoroutine(LoadAndStartGameplay());
         
         _uiRootView.HideLoadingScreen();
     }

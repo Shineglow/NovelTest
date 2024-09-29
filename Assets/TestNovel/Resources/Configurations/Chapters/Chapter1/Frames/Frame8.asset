@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 524f1c2cd88446e797e2db53763e537b, type: 3}
+  m_Name: Frame8
+  m_EditorClassIdentifier: 
+  BackgroundSwitchConfiguration:
+    BackgroundImage: {fileID: 0}
+  ActingInFrame:
+  - Character: 0
+    CharacterTransitionData: {fileID: 11400000, guid: 4c60cffbaf8e4e14a8d0312d9c273c5f, type: 2}
+  - Character: 2
+    CharacterTransitionData: {fileID: 11400000, guid: 0f93263165ca8654a856984ea011d073, type: 2}
+  ActualCue:
+    Character: 0
+    Emotion: 0
+    Cue:
+      m_TableReference:
+        m_TableCollectionName: GUID:301897040bb01144ea6d0f2425933823
+      m_TableEntryReference:
+        m_KeyId: 3008795602944
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d40058b1a93640f0942bcc057ff8947d, type: 3}
+  m_Name: Highwizard
+  m_EditorClassIdentifier: 
+  Name:
+    m_TableReference:
+      m_TableCollectionName: GUID:2fcaa25ceb9a8b1479d27373d2deeb84
+    m_TableEntryReference:
+      m_KeyId: 994757931008
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  CharacterEmotionsToViews: {fileID: 0}
+  references:
+    version: 2
+    RefIds: []
